@@ -1,0 +1,59 @@
+
+                <div class="content">
+
+                      <div class="header">
+                          <h1>Token List</h1>
+                      </div>
+
+                      <div class="searchBar">
+                        <i class="fa fa-search"></i>
+                        <input type="text" size="80" placeholder="Contract name or adress or ticker">
+
+                            <button nz-button nzType="primary" [routerLink]="['/issueToken']" routerLinkActive="router-link-active" >Issue Token</button>
+                            <button nz-button nzType="default">Export to CSV</button>
+
+                      </div>
+
+                      <div class="gridData">
+                        <nz-table [nzData]="iterable" [nzFrontPagination]="false">
+                            <thead>
+                              <th>Token name</th>
+                              <th>Tocken ticker</th>
+                              <th>Total supply</th>
+                              <th>Creation date</th>
+                              <th>Issuer name</th>
+                              <th>Template</th>
+                              <th>Country</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of iterable">
+
+                                    <td >{{item.TokenName}}</td>
+                                    <td>{{item.TokenTicker}}</td>
+                                    <td>{{item.TotalSupply}}</td>
+                                    <td>{{item.CreationDate}}</td>
+                                    <td>{{item.IssuerName}}</td>
+                                    <td>{{item.Template}}</td>
+                                    <td>{{item.Country}}</td>
+                                </tr>
+
+                            </tbody>
+                        </nz-table>
+
+                      </div>
+                      <div class="gridAction">
+                         <nz-table [nzData]="iterable" [nzFrontPagination]="false">
+                            <thead>
+                              <th>Action</th>
+                            </thead>
+                            <tbody>
+                              <td>
+                                  <a><i class="fa fa-trash-o fa-3x"></i></a>
+                              </td>
+                            </tbody>
+                          </nz-table>
+                      </div>
+                      <div class="pagination">
+                          <nz-pagination [nzPageIndex]="1" [nzTotal]="40"></nz-pagination>
+                      </div>
+                </div>

@@ -20,27 +20,6 @@
   margin-left: 15px;
 }
 
-.menu{
-  height: 1200px;
-  background-color: cadetblue;
-}
-.menu h2,h3{
-
-  margin-left: 30px;
-}
-.menu a .fa-bars{
-  position: absolute;
-  color: black;
-  margin-top: 5px;
-  margin-left: 15px;
-}
-.menu a .fa-plus{
-  position: absolute;
-  color: black;
-  margin-top: 5px;
-  margin-left: 15px;
-}
-
 .content{
   height: 1200px;
   background-color: lightslategray
@@ -53,7 +32,7 @@ margin-left:10px;
 .gridData {
   margin-top: 5px;
   margin-left:10px;
-  width: 700px;
+  width: 800px;
 }
 
 .gridAction {

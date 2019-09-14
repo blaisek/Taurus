@@ -1,0 +1,130 @@
+
+                <div class="content">
+
+                      <div class="header">
+                          <h1>Issue Token</h1>
+                      </div>
+                          <div class="container">
+
+                                  <form nz-form (ngSubmit)="onSubmit()" #f="ngForm">
+                                    <div
+                                      id="Token"
+                                      ngModelGroup="Data"
+                                      #Data="ngModelGroup">
+
+                                          <nz-form-item>
+                                              <nz-form-label [nzSpan]="6" nzFor="TokenName">Token name</nz-form-label>
+                                                <nz-form-control [nzSpan]="14" >
+                                                  <input  nz-input
+                                                    type="text"
+                                                    id="TokenName"
+                                                    ngModel
+                                                    name="TokenName"
+                                                    required
+                                                    #TokenName="ngModel">
+                                                </nz-form-control>
+                                          </nz-form-item>
+
+
+                                          <nz-form-item>
+                                                <nz-form-label [nzSpan]="6" nzFor="Tokenticker">Token ticker</nz-form-label>
+                                                  <nz-form-control [nzSpan]="14" >
+                                                <input  nz-input
+                                                  type="text"
+                                                  id="Tokenticker"
+                                                  ngModel
+                                                  name="Tokenticker"
+                                                  required
+                                                  #Tokenticker="ngModel">
+                                                </nz-form-control>
+                                          </nz-form-item>
+
+                                          <nz-form-item>
+                                            <nz-form-label [nzSpan]="6" nzFor="TotalSupply">Total Supply</nz-form-label>
+                                            <nz-form-control [nzSpan]="14">
+                                              <input nz-input
+                                              type="number"
+                                              id="TotalSupply"
+                                              ngModel
+                                              name="TotalSupply"
+                                              required
+                                              #TotalSupply="ngModel">
+                                            </nz-form-control>
+                                          </nz-form-item>
+
+                                          <nz-form-item>
+                                              <nz-form-label [nzSpan]="6" nzFor="CreationDate">Creation Date</nz-form-label>
+                                              <nz-form-control [nzSpan]="14">
+                                                <input nz-input
+                                                type="date"
+                                                id="CreationDate"
+                                                ngModel
+                                                name="CreationDate"
+                                                required
+                                                #CreationDate="ngModel">
+                                              </nz-form-control>
+                                          </nz-form-item>
+
+                                          <nz-form-item>
+                                                <nz-form-label [nzSpan]="6" nzFor="IssuerName"> Issuer Name</nz-form-label>
+                                                <nz-form-control [nzSpan]="14">
+                                                  <input nz-input
+                                                  type="text"
+                                                  id="IssuerName"
+                                                  ngModel
+                                                  name="IssuerName"
+                                                  required
+                                                  #IssuerName="ngModel">
+                                                </nz-form-control>
+                                          </nz-form-item>
+
+                                          <nz-form-item>
+                                                  <nz-form-label [nzSpan]="6" nzFor="Template">Template</nz-form-label>
+                                                  <nz-form-control [nzSpan]="14">
+                                                    <nz-select
+                                                    class="select"
+                                                    type="select"
+                                                    id="Template"
+                                                    ngModel
+                                                    name="Template"
+                                                    required
+                                                    #Template="ngModel">
+                                                    <nz-option nzValue="ERC20" nzLabel="ERC20"></nz-option>
+                                                    </nz-select>
+                                                  </nz-form-control>
+                                          </nz-form-item>
+
+                                          <nz-form-item>
+                                                    <nz-form-label [nzSpan]="6" nzFor="Country">Country</nz-form-label>
+                                                    <nz-form-control [nzSpan]="14">
+                                                      <nz-select
+                                                      class="select"
+                                                      type="select"
+                                                      id="Country"
+                                                      ngModel
+                                                      name="Country"
+                                                      required
+                                                      #Country="ngModel">
+                                                      <nz-option *ngFor="let i of ApiCountry;" [nzValue]="i" nzLabel="{{i}}"></nz-option>
+                                                     </nz-select>
+                                                    </nz-form-control>
+                                          </nz-form-item>
+
+                                    </div>
+                                    <div class="validator">
+                                        <p *ngIf="!Data.valid && Data.touched">form is invalid!</p>
+
+                                        <button
+                                        nz-button nzType="primary"
+                                        [disabled]="!f.valid" (click)="onSubmit()" [routerLink]="['/tokenList']">Submit</button>
+                                    </div>
+
+                                  </form>
+                              </div>
+                </div>
+
+
+
+
+
+
