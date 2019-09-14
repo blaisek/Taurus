@@ -16,10 +16,11 @@ export class TokenListComponent  {
   constructor(localService: LocalService) {
     this.data = localService.getData();
     this.iterable = [{...this.data}];
-    console.log('data', this.iterable);
-
   }
-
+clearLocalStorage() {
+  localStorage.clear();
+  location.reload();
+}
 
 }
 
