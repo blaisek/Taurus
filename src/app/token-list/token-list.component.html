@@ -15,7 +15,7 @@
                       </div>
 
                       <div class="gridData">
-                        <nz-table [nzData]="iterable" [nzFrontPagination]="false">
+                        <nz-table [nzData]="iterable" [nzFrontPagination]="false" [nzScroll]="{ x: '1000px' }">
                             <thead>
                               <th>Token name</th>
                               <th>Tocken ticker</th>
@@ -24,6 +24,7 @@
                               <th>Issuer name</th>
                               <th>Template</th>
                               <th>Country</th>
+                              <th nzWidth="0px" nzRight="0px">Action</th>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of iterable">
@@ -35,23 +36,12 @@
                                     <td>{{item.IssuerName}}</td>
                                     <td>{{item.Template}}</td>
                                     <td>{{item.Country}}</td>
+                                    <td nzRight="0px" nzHeight="0px" class="gridAction">
+                                      <a (click)="clearLocalStorage()"><i class="fa fa-trash-o fa-1x"></i></a>
+                                    </td>
                                 </tr>
-
                             </tbody>
                         </nz-table>
-
-                      </div>
-                      <div class="gridAction">
-                         <nz-table [nzData]="iterable" [nzFrontPagination]="false">
-                            <thead>
-                              <th>Action</th>
-                            </thead>
-                            <tbody>
-                              <td>
-                                  <a (click)="clearLocalStorage()"><i class="fa fa-trash-o fa-3x"></i></a>
-                              </td>
-                            </tbody>
-                          </nz-table>
                       </div>
                       <div class="pagination">
                           <nz-pagination [nzPageIndex]="1" [nzTotal]="40"></nz-pagination>

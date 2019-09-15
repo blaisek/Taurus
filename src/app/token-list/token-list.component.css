@@ -30,22 +30,17 @@ margin-left:10px;
 
 }
 .gridData {
-  margin-top: 5px;
+  margin-top: 15px;
   margin-left:10px;
   width: 800px;
 }
 
-.gridAction {
-
-  position: fixed;
-  margin-right: 60px;
-  right: 0;
-  top: 77px;
-}
 
 .gridAction .fa-trash-o{
   color: cadetblue;
+
 }
+
  .pagination {
 
   position: absolute;

@@ -8,6 +8,8 @@ import {Idata} from '../interface/idata';
 })
 export class LocalService {
 
+liste = [];
+
   constructor() {
   }
 
@@ -15,14 +17,23 @@ export class LocalService {
 
     const localStorageItems = JSON.parse(localStorage.getItem('data'));
 
-    return localStorageItems == null ? [{TokenName: 'TTISM' , TokenTicker: 'TTT',
-    TotalSupply: 10000, CreationDate: '17 mai 2019', IssuerName: 'Taurus group', Template: 'ERC20', Country: 'Switzerland'}]
-     : localStorageItems.data ;
+    return localStorageItems == null ? {TokenName: 'TTISM' , TokenTicker: 'TTT',
+    TotalSupply: 100000, CreationDate: '17 mai 2019', IssuerName: 'Taurus group', Template: 'ERC20', Country: 'Switzerland'}
+  : localStorageItems.data ;
 
   }
 
   public postData(data: Idata): void {
-    localStorage.setItem('data', JSON.stringify({data}));
-    }
+
+    this.liste.push(data);
+    let local = [];
+    let datas = [];
+    datas = [{...this.getData()}];
+    local = datas.concat(this.liste);
+    localStorage.setItem('data', JSON.stringify(local));
+
+    console.log('service:', local);
+
+  }
 
 }
