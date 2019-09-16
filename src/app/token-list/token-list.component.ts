@@ -13,12 +13,20 @@ export class TokenListComponent  {
 
         constructor(localService: LocalService) {
 
+          const get = localService.getData();
 
-            this.iterable = [{...localService.getData()}];
+          if ( get != null) {
 
-            console.log('iterable', this.iterable);
+            const keys = Object.keys(get);
+            const values = Object.values(get);
+            for (const i of keys) {
+              this.iterable[i] = values[i];
+            }
+
+          }
 
         }
+
       clearLocalStorage() {
         localStorage.clear();
         location.reload();
