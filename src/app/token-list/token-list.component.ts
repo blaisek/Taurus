@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { Idata } from '../interface/idata';
 import { LocalService } from '../storage/local.service';
 
 @Component({
@@ -7,17 +6,17 @@ import { LocalService } from '../storage/local.service';
   templateUrl: './token-list.component.html',
   styleUrls: ['./token-list.component.css']
 })
-export class TokenListComponent  {
 
-        public data: Idata;
+export class TokenListComponent  {
 
         public iterable = [];
 
         constructor(localService: LocalService) {
 
-          this.iterable = [{...localService.getData()}];
 
-          console.log('iterable', this.iterable);
+            this.iterable = [{...localService.getData()}];
+
+            console.log('iterable', this.iterable);
 
         }
       clearLocalStorage() {
