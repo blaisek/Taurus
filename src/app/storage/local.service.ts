@@ -29,16 +29,7 @@ export class LocalService {
   public postData(data: Idata): void {
 
     this.liste.push(data);
-
-    switch (this.getData()) {
-      case null:
-        localStorage.setItem('data', JSON.stringify(this.liste));
-        break;
-      default:
-          localStorage.setItem('data', JSON.stringify(this.liste));
-          break;
-    }
-
+    localStorage.setItem('data', JSON.stringify(this.liste));
 
   }
 

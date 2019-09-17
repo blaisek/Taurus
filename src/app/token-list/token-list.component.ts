@@ -22,13 +22,15 @@ export class TokenListComponent  {
             for (const i of keys) {
               this.iterable[i] = values[i];
             }
-
+          } else {
+            this.iterable = [{TokenName: 'TTISM' , TokenTicker: 'TTT',
+            TotalSupply: 10000, CreationDate: '17 mai 2019', IssuerName: 'Taurus group', Template: 'ERC20', Country: 'Switzerland'}];
           }
 
         }
 
       clearLocalStorage() {
-        localStorage.clear();
+        localStorage.removeItem('data');
         location.reload();
       }
 
