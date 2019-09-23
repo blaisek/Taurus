@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LocalService } from '../storage/local.service';
 
 @Component({
@@ -7,13 +7,15 @@ import { LocalService } from '../storage/local.service';
   styleUrls: ['./token-list.component.css']
 })
 
-export class TokenListComponent  {
+export class TokenListComponent implements OnInit {
 
         public iterable = [];
+        private key = [];
+        constructor(private localService: LocalService) {}
 
-        constructor(localService: LocalService) {
+        ngOnInit() {
 
-          const get = localService.getData();
+          const get = this.localService.getData();
 
           if ( get != null) {
 
@@ -21,17 +23,18 @@ export class TokenListComponent  {
             const values = Object.values(get);
             for (const i of keys) {
               this.iterable[i] = values[i];
+              this.key  = keys;
             }
           } else {
             this.iterable = [{TokenName: 'TTISM' , TokenTicker: 'TTT',
             TotalSupply: 10000, CreationDate: '17 mai 2019', IssuerName: 'Taurus group', Template: 'ERC20', Country: 'Switzerland'}];
           }
-
         }
 
       clearLocalStorage() {
-        localStorage.removeItem('data');
-        location.reload();
+        // location.reload();
+        console.log('remove item', localStorage.removeItem('data'));
+
       }
 
 }

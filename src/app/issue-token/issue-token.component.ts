@@ -24,8 +24,9 @@ export class IssueTokenComponent implements OnInit {
   };
   submitted = false;
 
-  ApiCountry = [];
-
+  public ApiCountry = [];
+  private d = new Date();
+  private n = this.d.toLocaleDateString();
   constructor(private http: HttpClient , private localService: LocalService) { }
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class IssueTokenComponent implements OnInit {
     this.data.TokenName = this.Form.value.Data.TokenName;
     this.data.TokenTicker = this.Form.value.Data.Tokenticker;
     this.data.TotalSupply = this.Form.value.Data.TotalSupply;
-    this.data.CreationDate = this.Form.value.Data.CreationDate;
+    this.data.CreationDate = this.n;
     this.data.IssuerName = this.Form.value.Data.IssuerName;
     this.data.Template = this.Form.value.Data.Template;
     this.data.Country = this.Form.value.Data.Country;
@@ -52,7 +53,7 @@ export class IssueTokenComponent implements OnInit {
     .pipe(map(responseData => {
       const countriesArray = [];
       for (const key in responseData) {
-        if(responseData.hasOwnProperty(key)){
+        if (responseData.hasOwnProperty(key)){
           countriesArray.push({...responseData[key]});
         }
 
