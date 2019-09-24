@@ -33,7 +33,13 @@ export class TokenListComponent implements OnInit {
 
       clearLocalStorage() {
         // location.reload();
-        console.log('remove item', localStorage.removeItem('data'));
+        // const get = this.localService.getData();
+
+        // const keys = Object.keys(get);
+
+        // const KeyName = localStorage.key(0);
+
+        // console.log('keys', keys, 'keysName', KeyName);
 
       }
 

@@ -29,7 +29,19 @@ export class LocalService {
   public postData(data: Idata): void {
 
     this.liste.push(data);
-    localStorage.setItem('data', JSON.stringify(this.liste));
+
+    if (localStorage.getItem('data') !== null) {
+
+      const parsedJSON = JSON.parse(localStorage.getItem('data'));
+      const newList = parsedJSON.concat(this.liste);
+
+      localStorage.setItem('data', JSON.stringify(newList));
+
+    } else {
+      localStorage.setItem('data', JSON.stringify(this.liste));
+    }
+
+    this.liste = [];
 
   }
 
