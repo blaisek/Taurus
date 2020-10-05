@@ -10,6 +10,7 @@ import { LocalService } from '../storage/local.service';
 export class TokenListComponent implements OnInit {
 
         public iterable = [];
+        public search: String[];
         private key = [];
         constructor(private localService: LocalService) {}
 
@@ -17,18 +18,21 @@ export class TokenListComponent implements OnInit {
 
           const get = this.localService.getData();
 
+
           if ( get != null) {
 
             const keys = Object.keys(get);
             const values = Object.values(get);
             for (const i of keys) {
               this.iterable[i] = values[i];
+              this.search = this.iterable[i].IssuerName;
               this.key  = keys;
             }
           } else {
             this.iterable = [{TokenName: 'TTISM' , TokenTicker: 'TTT',
             TotalSupply: 10000, CreationDate: '17 mai 2019', IssuerName: 'Taurus group', Template: 'ERC20', Country: 'Switzerland'}];
           }
+
         }
 
       clearLocalStorage() {

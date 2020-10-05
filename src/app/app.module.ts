@@ -15,6 +15,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 
 import { IssueTokenComponent } from './issue-token/issue-token.component';
 import { TokenListComponent } from './token-list/token-list.component';
+import { FiltrePipe } from './filtre.pipe';
 
 registerLocaleData(en);
 
@@ -24,7 +25,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     IssueTokenComponent,
-    TokenListComponent
+    TokenListComponent,
+    FiltrePipe
   ],
   imports: [
     BrowserModule,
